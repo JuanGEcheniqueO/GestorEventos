@@ -1,20 +1,22 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Inicio from './screens/Inicio';
-import CrearEvento from './screens/CrearEvento';
-import DetalleEvento from './screens/DetalleEvento';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import LoginScreen from './screens/LoginScreen';
+import DashboardScreen from './screens/DashboardScreen';
+import CrearEventoScreen from './screens/CrearEventoScreen';
+import DetalleEventoScreen from './screens/DetalleEventoScreen';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Inicio" component={Inicio} />
-        <Stack.Screen name="CrearEvento" component={CrearEvento} />
-        <Stack.Screen name="DetalleEvento" component={DetalleEvento} />
-      </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Login" component={LoginScreen} />
+        <Tab.Screen name="Dashboard" component={DashboardScreen} />
+        <Tab.Screen name="Crear Evento" component={CrearEventoScreen} />
+        <Tab.Screen name="Detalle" component={DetalleEventoScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
